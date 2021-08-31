@@ -7,6 +7,9 @@ source "${DIR}/.env.local"
 
 gcloud functions \
   deploy ${FUNCTION_NAME_PUBSUB} \
-  --source=${SOURCE_DIR} \
-  --runtime=python37 \
+  --source="${SOURCE_DIR}" \
+  --project="${PROJECT}" \
+  --runtime=python39 \
+  --region=europe-central2 \
+  --memory=512MB \
   --trigger-topic=${PUBSUB_TOPIC}
